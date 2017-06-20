@@ -1,0 +1,28 @@
+<!--
+  Generated template for the TimerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Timer</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-item>
+  <ion-label>Set Time</ion-label>
+  <ion-input type="text" [(ngModel)]="numberOfMinutes"></ion-input>
+</ion-item>
+<button (click)='startTimer()' ion-button color="clear" clear round>Start Timer</button>
+	{{formattedMinutes}}:{{formattedSeconds}}
+<audio *ngIf="currentSeconds >= totalSeconds" src="audio/bell.mp3" autoplay type="audio/mpeg"></audio>
+<svg id="timerSvg" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+  <path id="timerIndicator" fill="none" stroke="#ffd2da" stroke-width="4" [attr.d]="timerArc"></path>
+</svg>
+</ion-content>
